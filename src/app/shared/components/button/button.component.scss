@@ -1,0 +1,30 @@
+button {
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: 1px transparent;
+  border-radius: 5px;
+
+  &.main-button {
+    background: var(--main-color);
+    color: var(--seccondary-color);
+    &:hover {
+      background: var(--main-color-darked)
+    }
+  }
+
+  &.seccondary-button {
+    background: var(--seccondary-color);
+    color: #fff;
+    &:hover {
+      background: var(--seccondary-color-darked);
+    }
+  }
+
+  &.disable-button {
+    background: var(--disable-color) !important;
+    color: var(--disable-text) !important;
+    &:hover {
+      cursor: default !important;
+    }
+  }
+}

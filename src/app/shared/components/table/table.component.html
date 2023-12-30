@@ -1,0 +1,79 @@
+<div class="content">
+  <div class="table-container">
+    <div class="table-actions">
+      <app-searchbar (onSearch)="onSearch($event)"></app-searchbar>
+      <ng-content></ng-content>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">
+            {{ column.title }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="!_items.length; else data">
+          <tr>
+            <td [attr.colspan]="columns.length">
+              <h3 class="text-center">No hay data para mostrar</h3>
+            </td>
+          </tr>
+        </ng-container>
+
+        <ng-template #data>
+          <tr
+            *ngFor="let item of _items | slice: startAt:endsAt"
+          >
+            <td *ngFor="let c of columns" class="text-center">
+              <ng-container *ngIf="c.type === 'text'">
+                {{ item[c.property] }}
+              </ng-container>
+
+              <ng-container *ngIf="c.type === 'image'">
+                <img src="{{ item[c.property] }}" (error) ="handleImageError($event)"/>
+              </ng-container>
+
+              <ng-container *ngIf="c.type === 'date'">
+                <span>{{ item[c.property] | date: "dd/MM/yyyy" }}</span>
+              </ng-container>
+
+              <ng-container *ngIf="c.type === 'actions'">
+                <app-context-menu
+                  [actions]="c.actions!"
+                  (actionClick)="onActionClick($event, item)"
+                ></app-context-menu>
+              </ng-container>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+
+    <div class="table-pagination" *ngIf="_items.length">
+      <button
+        [disabled]="i + 1 === currentPage"
+        (click)="onNavPagination(i + 1)"
+        *ngFor="let page of totalpages; let i = index"
+      >
+        <span>{{ i + 1 }}</span>
+      </button>
+    </div>
+
+    <div class="table-controls">
+      <div class="count">
+        <span>{{ _items.length }} Resultados</span>
+      </div>
+
+      <div class="show-per-page">
+        <select name="show-per-page" (change)="onShowPerPage($event)">
+          <option value="1">1</option>
+          <option value="5" selected>5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

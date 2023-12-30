@@ -1,0 +1,41 @@
+svg {
+  height: 25px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.context-menu-container {
+  position: relative;
+}
+
+.context-menu {
+  position: absolute;
+  top: -20px;
+  left: -25px;
+  z-index: 99999;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
+  padding: 10px 0;
+}
+.menu > li {
+  padding: 10px 30px 10px 15px;
+  display: flex;
+  color: var(--seccondary-color);
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,199 @@
+<app-button [text]="'Volver'" (click)="backToProductsList()"></app-button>
+
+<div class="content">
+  <h1>Formulario de Registro</h1>
+
+  <div class="form-container">
+    <form [formGroup]="productsForm" (ngSubmit)="sendForm()">
+      <div class="form-inputs">
+        <div class="input-group">
+          <div class="input-item">
+            <label for="id">ID</label>
+            <input
+              formControlName="id"
+              type="text"
+              id="id"
+              [attr.class]="
+                productsForm.get('id')?.touched
+                  ? productsForm.get('id')?.invalid
+                    ? 'input-error'
+                    : 'input-success'
+                  : ''
+              "
+            />
+
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('id')?.touched &&
+                productsForm.get('id')?.invalid
+              "
+              >el ID debe incluir de 3 a 10 caracteres</small
+            >
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('id')?.touched &&
+                !productsForm.get('id')?.value?.length
+              "
+              >el ID es obligatorio</small
+            >
+          </div>
+
+          <div class="input-item">
+            <label for="name">Nombre</label>
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              [attr.class]="
+                productsForm.get('name')?.touched
+                  ? productsForm.get('name')?.invalid
+                    ? 'input-error'
+                    : 'input-success'
+                  : ''
+              "
+            />
+
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('name')?.touched &&
+                productsForm.get('name')?.invalid
+              "
+              >el Nombre debe incluir de 5 a 100 caracteres</small
+            >
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('name')?.touched &&
+                !productsForm.get('name')?.value?.length
+              "
+              >el Nombre es obligatorio</small
+            >
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-item">
+            <label for="description">Descripción</label>
+            <input
+              formControlName="description"
+              type="text"
+              id="description"
+              [attr.class]="
+                productsForm.get('description')?.touched
+                  ? productsForm.get('description')?.invalid
+                    ? 'input-error'
+                    : 'input-success'
+                  : ''
+              "
+            />
+
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('description')?.touched &&
+                productsForm.get('description')?.invalid
+              "
+              >la Descripción debe incluir de 10 a 200 caracteres</small
+            >
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('description')?.touched &&
+                !productsForm.get('description')?.value?.length
+              "
+              >la Descripción es obligatoria</small
+            >
+          </div>
+
+          <div class="input-item">
+            <label for="logo">Logo</label>
+            <input
+              formControlName="logo"
+              type="text"
+              id="logo"
+              [attr.class]="
+                productsForm.get('logo')?.touched
+                  ? productsForm.get('logo')?.invalid
+                    ? 'input-error'
+                    : 'input-success'
+                  : ''
+              "
+            />
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('logo')?.touched &&
+                !productsForm.get('logo')?.value?.length
+              "
+              >el Logo es obligatorio</small
+            >
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-item">
+            <label for="date_release">Fecha de Liberación</label>
+            <input
+              formControlName="date_release"
+              type="date"
+              id="date_release"
+              [attr.class]="
+                productsForm.get('date_release')?.touched
+                  ? productsForm.get('date_release')?.invalid
+                    ? 'input-error'
+                    : 'input-success'
+                  : ''
+              "
+              (change)="onDateReleaseChange($event)"
+            />
+
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('date_release')?.touched &&
+                productsForm.get('date_release')?.invalid
+              "
+              >la Fecha de Liberación debe ser igual o mayor a la fecha
+              actual</small
+            >
+            <small
+              class="text-error"
+              *ngIf="
+                productsForm.get('date_release')?.touched &&
+                !productsForm.get('date_release')?.value
+              "
+              >la Fecha de Liberación es obligatoria</small
+            >
+          </div>
+
+          <div class="input-item">
+            <label for="date_revision">Fecha de Revisión</label>
+            <input
+              formControlName="date_revision"
+              type="date"
+              id="date_revision"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <app-button
+          [text]="'Reiniciar'"
+          color="seccondary"
+          (click)="resetForm()"
+        ></app-button>
+
+        <app-button
+          [disabled]="productsForm.invalid"
+          [text]="'Enviar'"
+          color="main"
+          type="submit"
+        ></app-button>
+      </div>
+    </form>
+  </div>
+</div>

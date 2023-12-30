@@ -1,0 +1,55 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-container {
+  padding: 10px;
+  background: #fff;
+}
+
+.table-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+thead {
+  background-color: #f4f6f9;
+  th {
+    min-width: 150px;
+    padding: 10px;
+  }
+}
+
+img {
+  max-width: 100px;
+}
+
+table,
+th,
+td,
+tr {
+  border-bottom: 1px solid #a7a9ad;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  select {
+    padding: 5px 10px;
+  }
+}
+
+.table-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+
+  button {
+    margin: 0 2px;
+  }
+}

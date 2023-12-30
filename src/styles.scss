@@ -1,0 +1,17 @@
+@import "./theme/variables.scss";
+@import "./theme/text-utils.scss";
+@import "./theme/input-utils.scss";
+
+body {
+  margin: 0;
+  background: #f4f6f9;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+app-toast,
+.toast-class {
+  z-index: 999999;
+}

@@ -1,0 +1,31 @@
+<div class="content">
+  <app-table
+    [columns]="columns"
+    [inputItems]="products"
+    (actionTrigger)="onActionTrigger($event)"
+  >
+    <app-button
+      [text]="'Agregar'"
+      [color]="'main'"
+      (click)="navigateToAddProduct()"
+    ></app-button>
+  </app-table>
+</div>
+
+<app-modal>
+  <h2 class="text-center">
+    ¿Estas seguro de eliminar el producto '{{ selectedProduct?.name }}'?
+  </h2>
+  <div class="modal-buttons">
+    <app-button
+      color="seccondary"
+      text="Cancelar"
+      (click)="closeModal()"
+    ></app-button>
+    <app-button
+      color="main"
+      text="Eliminar"
+      (click)="deleteProduct()"
+    ></app-button>
+  </div>
+</app-modal>
