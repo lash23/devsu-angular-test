@@ -1,17 +1,18 @@
-## About the project
+## Concepts
 
-This project applies some concepts like State management, Dockerizing, Routing management, Unit tests and API requests.
-
-The goal of this project is to apply these concepts in order to provide an SPA web application which consumes a [Back-end server located in this repository](https://github.com/lash23/files-reader-back-end) in order to list the data provided through API calls.
+1. Reactive programming.
+2. Content projection
+3. Reactive forms
+4. Unit testing
+5. Components Parent/Child communication
+6. Api integration
 
 ## Technologies
 
-1. React.
-2. Redux.
-3. Jest for unit test development
-4. Vite for dev environment management
-5. Bootstrap.
-6. Docker & Docker compose
+1. Angular.
+2. Typescript
+3. RxJs.
+4. Jasmine for unit test development
 
 ## Prerequisites
 
