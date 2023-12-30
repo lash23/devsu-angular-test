@@ -1,18 +1,21 @@
 ## Concepts
 
 1. Reactive programming.
-2. Content projection
-3. Reactive forms
-4. Unit testing
-5. Components Parent/Child communication
-6. Api integration
+2. Angular Routing
+3. Modules Lazy loading
+4. Content projection
+5. Conditional templates
+6. Reactive forms
+7. Components Parent/Child communication
+8. Unit testing
+9. Api integration
 
 ## Technologies
 
-1. Angular.
+1. Angular
 2. Typescript
-3. RxJs.
-4. Jasmine for unit test development
+3. RxJs
+4. Jasmine
 
 ## Prerequisites
 
